@@ -1,4 +1,6 @@
+import 'package:clmac_dashboard_webapp/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(MyApp());
@@ -24,6 +26,7 @@ class MyHomePage extends StatelessWidget {
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width * 0.5,
+        color: Colors.white,
         child: Column(
           children: [
             Container(
@@ -40,8 +43,10 @@ class MyHomePage extends StatelessWidget {
               children: [
                 Text(
                   'December 2-8',
-                  style: TextStyle(
+                  style: GoogleFonts.nunitoSans(
                     fontSize: 20.0,
+                    color: mainTextColor,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
                 SizedBox(
@@ -75,7 +80,7 @@ class MyHomePage extends StatelessWidget {
                   height: 45.0,
                   width: 120.0,
                   decoration: BoxDecoration(
-                    color: Colors.blue[50],
+                    color: monthButtonColor,
                     borderRadius: BorderRadius.circular(15.0),
                   ),
                   child: Row(
@@ -83,14 +88,17 @@ class MyHomePage extends StatelessWidget {
                     children: [
                       Icon(
                         Icons.calendar_today,
-                        size: 20.0,
+                        size: 18.0,
+                        color: mainTextColor
                       ),
                       SizedBox(
                         width: 10.0,
                       ),
                       Text(
                         'Month',
-                        style: TextStyle(fontSize: 16.0),
+                        style: GoogleFonts.nunitoSans(fontSize: 16.0,
+                        color: Colors.black26,
+                        ),
                       ),
                     ],
                   ),
@@ -100,41 +108,69 @@ class MyHomePage extends StatelessWidget {
             Container(
               margin: EdgeInsets.symmetric(vertical: 15.0),
               height: 1.0,
-              color: Colors.black54,
+              color: Colors.black12,
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal : 16.0),
+            Container(
+              height: 75.0,
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  CalendarPellet(),
-                  CalendarPellet(),
-                  CalendarPellet(),
-                  CalendarPellet(),
-                  CalendarPellet(),
-                  CalendarPellet(),
-                  CalendarPellet(),
+                  CalendarPellet(
+                    text: 'Mon',
+                    subText: '2',
+                    color: color1,
+                  ),
+                  CalendarPellet(
+                    text: 'Tue',
+                    subText: '3',
+                    color: color2,
+                  ),
+                  CalendarPellet(
+                    text: 'Wed',
+                    subText: '4',
+                    color: color3,
+                  ),
+                  CalendarPellet(text: 'Thu',
+                    subText: '5',
+                    color: color4,),
+                  CalendarPellet(
+                    text: 'Fri',
+                    subText: '6',
+                    color: color1,
+                  ),
+                  CalendarPellet(
+                    text: 'Sat',
+                    subText: '7',
+                    color: color2,
+                  ),
+                  CalendarPellet(
+                    text: 'Sun',
+                    subText: '8',
+                    color: color3,
+                  ),
                 ],
               ),
             ),
             Container(
               margin: EdgeInsets.symmetric(vertical: 15.0),
               height: 1.0,
-              color: Colors.black54,
+              color: Colors.black12,
             ),
             Row(
               children: [
                 Text(
                   'Weekly Reports',
-                  style: TextStyle(
+                  style: GoogleFonts.nunitoSans(
                     fontSize: 16.0,
+                    color: mainTextColor,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
                 Spacer(),
                 Text(
                   'Today',
-                  style: TextStyle(
+                  style: GoogleFonts.nunitoSans(
                     fontSize: 13.0,
                     color: Colors.black45,
                     fontWeight: FontWeight.w700,
@@ -143,7 +179,7 @@ class MyHomePage extends StatelessWidget {
                 SizedBox(width: 10.0),
                 Text(
                   'Week',
-                  style: TextStyle(
+                  style: GoogleFonts.nunitoSans(
                     fontSize: 13.0,
                     color: Colors.black,
                     fontWeight: FontWeight.w700,
@@ -152,7 +188,7 @@ class MyHomePage extends StatelessWidget {
                 SizedBox(width: 10.0),
                 Text(
                   'Month',
-                  style: TextStyle(
+                  style: GoogleFonts.nunitoSans(
                     fontSize: 13.0,
                     color: Colors.black45,
                     fontWeight: FontWeight.w700,
@@ -168,10 +204,30 @@ class MyHomePage extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  WeeklyReportCards(),
-                  WeeklyReportCards(),
-                  WeeklyReportCards(),
-                  WeeklyReportCards(),
+                  WeeklyReportCards(
+                    text: 'System Junk',
+                    buttonText: '35 Gb',
+                    color: color1,
+                    icon: Icons.delete_outline,
+                  ),
+                  WeeklyReportCards(
+                    text: 'iTunes Junk',
+                    buttonText: '1.25 Gb',
+                    color: color3,
+                    icon: Icons.music_note,
+                  ),
+                  WeeklyReportCards(
+                    text: 'Trash Bins',
+                    buttonText: '16.35 Gb',
+                    color: color2,
+                    icon: Icons.delete,
+                  ),
+                  WeeklyReportCards(
+                    text: 'Photo Junk',
+                    buttonText: '12.10 Gb',
+                    color: color4,
+                    icon: Icons.photo,
+                  ),
                 ],
               ),
             ),
@@ -182,51 +238,98 @@ class MyHomePage extends StatelessWidget {
   }
 }
 
-class CalendarPellet extends StatelessWidget {
-  const CalendarPellet({
-    Key key,
-  }) : super(key: key);
+class CalendarPellet extends StatefulWidget {
+  final String text;
+  final String subText;
+  final Color color;
+  CalendarPellet({
+    this.color,
+    this.subText,
+    this.text,
+  });
+  @override
+  _CalendarPelletState createState() => _CalendarPelletState();
+}
 
+class _CalendarPelletState extends State<CalendarPellet> {
+  bool exit = true;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          Text(
-            'Mon',
-            style: TextStyle(
-              fontSize: 13.0,
-              fontWeight: FontWeight.bold,
+    return MouseRegion(
+      onEnter: (value) {
+        setState(() {
+          exit = false;
+        });
+      },
+      onExit: (v) {
+        setState(() {
+          exit = true;
+        });
+      },
+      child: AnimatedContainer(
+        height: exit ? 60.0 : 75.0,
+        width: exit ? 40.0 : 45.0,
+        duration: Duration(milliseconds: 200),
+        decoration: BoxDecoration(
+          color: exit ? Colors.white : color3,
+          borderRadius: BorderRadius.circular(10.0),
+          boxShadow: exit ? [] : [
+            BoxShadow(
+              color: color3,
+              blurRadius: 10.0,
             ),
-          ),
-          SizedBox(
-            height: 10.0,
-          ),
-          Text(
-            '2',
-            style: TextStyle(
-              fontSize: 14.0,
-              fontWeight: FontWeight.normal,
+          ]
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              widget.text,
+              style: GoogleFonts.nunitoSans(
+                  fontSize: 13.0,
+                  fontWeight: FontWeight.bold,
+                  color: exit ? Color(0xff45417C) : Colors.white),
             ),
-          ),
-          SizedBox(
-            height: 5.0,
-          ),
-          Container(
-            height: 4.0,
-            width: 4.0,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10.0),
-              color: Colors.red,
+            SizedBox(
+              height: 10.0,
             ),
-          )
-        ],
+            Text(
+              widget.subText,
+              style: GoogleFonts.nunitoSans(
+                color: exit ? Colors.black87 : Colors.white,
+                fontSize: 14.0,
+                fontWeight: FontWeight.normal,
+              ),
+            ),
+            SizedBox(
+              height: 5.0,
+            ),
+            Container(
+              height: 4.0,
+              width: 4.0,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10.0),
+                color: exit ? widget.color : Colors.white,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
 }
 
 class WeeklyReportCards extends StatefulWidget {
+  final String text;
+  final Color color;
+  final String buttonText;
+  final IconData icon;
+  WeeklyReportCards({
+    this.buttonText,
+    this.color,
+    this.text,
+    this.icon,
+  });
   @override
   _WeeklyReportCardsState createState() => _WeeklyReportCardsState();
 }
@@ -249,21 +352,23 @@ class _WeeklyReportCardsState extends State<WeeklyReportCards> {
       },
       child: AnimatedContainer(
         duration: Duration(milliseconds: 200),
-        height: exit ? 150.0 : 170.0,
+        height: exit ? 145.0 : 170.0,
         width: 130.0,
         decoration: BoxDecoration(
-          color: exit ? Color(0xfffafafa) : Colors.white,
+          color: exit ? Colors.white : Colors.white,
           borderRadius: BorderRadius.circular(20.0),
           border: Border.all(
             color: exit ? Colors.black12 : Colors.transparent,
           ),
-          boxShadow: exit ? [] : [
-            BoxShadow(
-              spreadRadius: 1.0,
-              blurRadius: 20.0,
-              color: Colors.grey[200],
-            ),
-          ],
+          boxShadow: exit
+              ? []
+              : [
+                  BoxShadow(
+                    spreadRadius: 1.0,
+                    blurRadius: 20.0,
+                    color: Colors.grey[200],
+                  ),
+                ],
         ),
         child: Column(
           children: [
@@ -272,22 +377,23 @@ class _WeeklyReportCardsState extends State<WeeklyReportCards> {
               margin: EdgeInsets.only(top: 15.0),
               padding: EdgeInsets.all(8.0),
               decoration: BoxDecoration(
-                border: Border.all(
-                  color: !exit ? Colors.transparent : Colors.amber,
-                ),
-                  color: !exit ? Colors.amber : Colors.white,
+                  border: Border.all(
+                    color: !exit ? Colors.transparent : widget.color,
+                  ),
+                  color: !exit ? widget.color : Colors.white,
                   borderRadius: BorderRadius.circular(10.0)),
               child: Icon(
-                Icons.delete_outline,
+                widget.icon,
                 size: 20.0,
-                color: !exit ? Colors.white : Colors.amber,
+                color: !exit ? Colors.white : widget.color,
               ),
             ),
             Spacer(),
             Text(
-              'System Junk',
-              style: TextStyle(
-                fontSize: 14.0,
+              widget.text,
+              style: GoogleFonts.nunitoSans(
+                fontSize: 15.0,
+                color: mainTextColor,
               ),
             ),
             Spacer(),
@@ -297,19 +403,25 @@ class _WeeklyReportCardsState extends State<WeeklyReportCards> {
               ),
               padding: EdgeInsets.all(0.0),
               onPressed: () {},
-              color: exit ? Colors.transparent : Colors.amber,
-              child: Container(
-                height: 55.0,
+              color: exit ? Colors.transparent : widget.color,
+              child: AnimatedContainer(
+                duration: Duration(milliseconds: 200),
+                height: exit ? 40 : 55.0,
                 width: 120.0,
                 child: Center(
-                  child: Text('35 Gb',style: TextStyle(
-                    fontSize: 20.0
-                  ),),
+                  child: Text(
+                    widget.buttonText,
+                    style: GoogleFonts.nunitoSans(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.w600,
+                      color: exit ? mainTextColor : Colors.white,
+                    ),
+                  ),
                 ),
               ),
             ),
             SizedBox(
-              height: 3.0,
+              height: 5.0,
             ),
           ],
         ),
