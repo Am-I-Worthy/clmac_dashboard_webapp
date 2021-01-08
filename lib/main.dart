@@ -26,14 +26,47 @@ class MyHomePage extends StatelessWidget {
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width * 0.5,
+        padding: EdgeInsets.symmetric(horizontal: 20.0),
         color: Colors.white,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              height: 150.0,
+              height: 120.0,
               decoration: BoxDecoration(
                 color: Colors.amber,
                 borderRadius: BorderRadius.circular(20.0),
+              ),
+              alignment: Alignment.centerRight,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Hello, Barbara!',
+                          style: GoogleFonts.raleway(
+                              fontSize: 26.0,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white),
+                        ),
+                        Text(
+                          'Welcome Back to Clean My Mac',
+                          style: GoogleFonts.quicksand(
+                              fontSize: 15.0, color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Image.asset(
+                    'assets/laptop.png',
+                    fit: BoxFit.fill,
+                  ),
+                ],
               ),
             ),
             SizedBox(
@@ -44,7 +77,7 @@ class MyHomePage extends StatelessWidget {
                 Text(
                   'December 2-8',
                   style: GoogleFonts.nunitoSans(
-                    fontSize: 20.0,
+                    fontSize: 16.0,
                     color: mainTextColor,
                     fontWeight: FontWeight.w600,
                   ),
@@ -77,27 +110,25 @@ class MyHomePage extends StatelessWidget {
                 ),
                 Spacer(),
                 Container(
-                  height: 45.0,
-                  width: 120.0,
+                  height: 32.0,
+                  width: 95.0,
                   decoration: BoxDecoration(
                     color: monthButtonColor,
-                    borderRadius: BorderRadius.circular(15.0),
+                    borderRadius: BorderRadius.circular(10.0),
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(
-                        Icons.calendar_today,
-                        size: 18.0,
-                        color: mainTextColor
-                      ),
+                      Icon(Icons.calendar_today,
+                          size: 15.0, color: mainTextColor),
                       SizedBox(
                         width: 10.0,
                       ),
                       Text(
                         'Month',
-                        style: GoogleFonts.nunitoSans(fontSize: 16.0,
-                        color: Colors.black26,
+                        style: GoogleFonts.nunitoSans(
+                          fontSize: 14.0,
+                          color: Colors.black26,
                         ),
                       ),
                     ],
@@ -106,7 +137,7 @@ class MyHomePage extends StatelessWidget {
               ],
             ),
             Container(
-              margin: EdgeInsets.symmetric(vertical: 15.0),
+              margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
               height: 1.0,
               color: Colors.black12,
             ),
@@ -131,9 +162,11 @@ class MyHomePage extends StatelessWidget {
                     subText: '4',
                     color: color3,
                   ),
-                  CalendarPellet(text: 'Thu',
+                  CalendarPellet(
+                    text: 'Thu',
                     subText: '5',
-                    color: color4,),
+                    color: color4,
+                  ),
                   CalendarPellet(
                     text: 'Fri',
                     subText: '6',
@@ -153,9 +186,12 @@ class MyHomePage extends StatelessWidget {
               ),
             ),
             Container(
-              margin: EdgeInsets.symmetric(vertical: 15.0),
+              margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
               height: 1.0,
               color: Colors.black12,
+            ),
+            SizedBox(
+              height: 10.0,
             ),
             Row(
               children: [
@@ -171,7 +207,7 @@ class MyHomePage extends StatelessWidget {
                 Text(
                   'Today',
                   style: GoogleFonts.nunitoSans(
-                    fontSize: 13.0,
+                    fontSize: 12.0,
                     color: Colors.black45,
                     fontWeight: FontWeight.w700,
                   ),
@@ -180,8 +216,8 @@ class MyHomePage extends StatelessWidget {
                 Text(
                   'Week',
                   style: GoogleFonts.nunitoSans(
-                    fontSize: 13.0,
-                    color: Colors.black,
+                    fontSize: 12.0,
+                    color: mainTextColor,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
@@ -189,7 +225,7 @@ class MyHomePage extends StatelessWidget {
                 Text(
                   'Month',
                   style: GoogleFonts.nunitoSans(
-                    fontSize: 13.0,
+                    fontSize: 12.0,
                     color: Colors.black45,
                     fontWeight: FontWeight.w700,
                   ),
@@ -197,7 +233,7 @@ class MyHomePage extends StatelessWidget {
               ],
             ),
             SizedBox(
-              height: 20.0,
+              height: 15.0,
             ),
             Container(
               height: 170.0,
@@ -230,6 +266,50 @@ class MyHomePage extends StatelessWidget {
                   ),
                 ],
               ),
+            ),
+            SizedBox(
+              height: 20.0,
+            ),
+            Text(
+              'Updating Monitoring',
+              style: GoogleFonts.nunitoSans(
+                fontSize: 16.0,
+                color: mainTextColor,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+            Row(
+              children: [
+                Expanded(
+                  child: Container(
+                    height: 100.0,
+                    child: Row(
+                      children: [
+                        Column(
+                          children: [
+                            Text(
+                              'System Files',
+                              style: GoogleFonts.nunitoSans(
+                                fontSize: 13.0,
+                                color: mainTextColor,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                            Text(
+                              'December 2019',
+                              style: GoogleFonts.nunitoSans(
+                                fontSize: 11.0,
+                                color: mainTextColor,
+                                fontWeight: FontWeight.normal,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
@@ -271,15 +351,16 @@ class _CalendarPelletState extends State<CalendarPellet> {
         width: exit ? 40.0 : 45.0,
         duration: Duration(milliseconds: 200),
         decoration: BoxDecoration(
-          color: exit ? Colors.white : color3,
-          borderRadius: BorderRadius.circular(10.0),
-          boxShadow: exit ? [] : [
-            BoxShadow(
-              color: color3,
-              blurRadius: 10.0,
-            ),
-          ]
-        ),
+            color: exit ? Colors.white : color3,
+            borderRadius: BorderRadius.circular(10.0),
+            boxShadow: exit
+                ? []
+                : [
+                    BoxShadow(
+                      color: color3,
+                      blurRadius: 10.0,
+                    ),
+                  ]),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -291,7 +372,7 @@ class _CalendarPelletState extends State<CalendarPellet> {
                   color: exit ? Color(0xff45417C) : Colors.white),
             ),
             SizedBox(
-              height: 10.0,
+              height: 5.0,
             ),
             Text(
               widget.subText,
@@ -302,7 +383,7 @@ class _CalendarPelletState extends State<CalendarPellet> {
               ),
             ),
             SizedBox(
-              height: 5.0,
+              height: 3.0,
             ),
             Container(
               height: 4.0,
