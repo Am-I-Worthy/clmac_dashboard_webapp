@@ -24,6 +24,8 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.1
+  fl_chart: ^0.12.2
+  flutter_vector_icons: ^0.2.1
   google_fonts: ^1.1.1
   sleek_circular_slider: ^1.2.0+web
 

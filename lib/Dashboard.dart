@@ -342,7 +342,7 @@ class Dashboard extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    width: 50.0,
+                    width: 25.0,
                   ),
                   Expanded(
                     child: Container(
@@ -543,7 +543,7 @@ class _WeeklyReportCardsState extends State<WeeklyReportCards> {
       child: AnimatedContainer(
         duration: Duration(milliseconds: 200),
         height: exit ? 120.0 : 140.0,
-        width: 110.0,
+        width: 100.0,
         decoration: BoxDecoration(
           color: exit ? Colors.white : Colors.white,
           borderRadius: BorderRadius.circular(20.0),
@@ -582,7 +582,7 @@ class _WeeklyReportCardsState extends State<WeeklyReportCards> {
             Text(
               widget.text,
               style: GoogleFonts.nunitoSans(
-                fontSize: 15.0,
+                fontSize: 13.0,
                 color: mainTextColor,
               ),
             ),
@@ -596,13 +596,13 @@ class _WeeklyReportCardsState extends State<WeeklyReportCards> {
               color: exit ? Colors.transparent : widget.color,
               child: AnimatedContainer(
                 duration: Duration(milliseconds: 200),
-                height: exit ? 40 : 45.0,
-                width: 100.0,
+                height: exit ? 35 : 45.0,
+                width: 90.0,
                 child: Center(
                   child: Text(
                     widget.buttonText,
                     style: GoogleFonts.nunitoSans(
-                      fontSize: 20.0,
+                      fontSize: 18.0,
                       fontWeight: FontWeight.w600,
                       color: exit ? mainTextColor : Colors.white,
                     ),
