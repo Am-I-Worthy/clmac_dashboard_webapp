@@ -350,12 +350,6 @@ class Dashboard extends StatelessWidget {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20.0),
                         color: mainTextColor,
-                        // boxShadow: [
-                        //   BoxShadow(
-                        //     color: Colors.black12,
-                        //     blurRadius: 5.0,
-                        //   ),
-                        // ],
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 final appTheme = ThemeData(
   primarySwatch: Colors.red,
@@ -46,19 +47,23 @@ class _NavbarState extends State<Navbar> {
           Positioned(
             top: 30.0,
             left: 30.0,
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
                   'Cl',
-                  style:
-                      TextStyle(fontWeight: FontWeight.w100, color: Colors.white,fontSize: 16.0),
+                  style: GoogleFonts.nunitoSans(
+                      fontWeight: FontWeight.w100,
+                      color: Colors.white,
+                      fontSize: 16.0),
                 ),
                 Text(
                   'Mac',
-                  style:
-                      TextStyle(fontWeight: FontWeight.w600, color: Colors.white,fontSize: 14.0),
+                  style: GoogleFonts.nunitoSans(
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white,
+                      fontSize: 16.0),
                 ),
               ],
             ),
